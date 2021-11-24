@@ -4,10 +4,17 @@
       <Nav :current-genre-id="currentGenreId"/>
 
       <section class="w-full lg:w-4/5">
-        <!-- Title -->
-        <h1 v-if="title" class="flex items-center font-sans font-bold break-normal text-gray-700 px-2 text-xl mt-12 lg:mt-0 md:text-2xl">
-          {{ title }}
-        </h1>
+        <div class="flex justify-between">
+          <div>
+            <!-- Title -->
+            <h1 v-if="title" class="flex items-center font-sans font-bold break-normal text-gray-700 px-2 text-xl mt-12 lg:mt-0 md:text-2xl">
+              {{ title }}
+            </h1>
+          </div>
+
+          <!-- Right search -->
+          <Search />
+        </div>
 
         <!-- Divider -->
         <hr v-if="title" class="bg-gray-300 my-12" />
@@ -19,10 +26,12 @@
 
 <script>
 import Nav from './Nav';
+import Search from './Search'
 
 export default {
   name: 'Layout',
   components: {
+    Search,
     Nav
   },
   props: {

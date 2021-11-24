@@ -1,22 +1,24 @@
 nav.title: 'Genres'
 
-home:
-    title: Bienvenue
-    welcome: |
+home.title: Bienvenue
+home.welcome: |
         C'est un site de démonstration pour mobiliser différentes compétences de programmation. Le site utilise
             <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a> et
             <a href="https://symfony.com" target="_blank">Symfony</a> ainsi que l'API de
             <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>.
-    explanations: |
+home.explanations: |
         Vous pouvez parcourir les catégories situées sur la gauche de l'écran, et butiner sur les différents boutons
         pour découvrir les différentes fonctionnalités.
 
-genre:
-    title: 'Catégorie: {genre_name}'
-    details_button: Lire le détails
-    details:
-        original_language: 'Code Langage :'
-        original_title: 'Titre original :'
-        release_date: 'Date de sortie :'
-        vote_count: 'Nombre de vote :'
-        vote_average: 'Note moyenne :'
+genre.title: 'Catégorie: {genre_name}'
+genre.tmdb_button: Voir sur TMDB
+genre.details_button: Lire le détails
+genre.details.original_language: 'Code Langage :'
+genre.details.original_title: 'Titre original :'
+genre.details.release_date: 'Date de sortie :'
+genre.details.vote_count: 'Nombre de vote :'
+genre.details.vote_average: 'Note moyenne :'
+
+movie.search: Rechercher un film
+movie.details.no_video: Malheureusement, aucune vidéo n'est disponible pour ce film
+modal.close: 'Fermer'

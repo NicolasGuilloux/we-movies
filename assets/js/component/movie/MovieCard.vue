@@ -1,6 +1,6 @@
 <template>
   <div class="p-8 mt-6 w-100 leading-normal rounded shadow bg-white">
-    <div class="flex mb-8 w-100" v-on:click="isModalVisible = !isModalVisible">
+    <div class="flex mb-8 w-100">
       <img :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
            alt="movie.name poster"
            class="h-40 pr-8"
@@ -31,26 +31,30 @@
       </div>
     </div>
 
+    <span v-on:click="isModalVisible = true" class="cursor-pointer shadow bg-yellow-700 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mr-4">
+      {{ 'genre.details_button'|trans }}
+    </span>
+
     <a class="shadow bg-yellow-700 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
        :href="'https://www.themoviedb.org/movie/' + movie.id"
        target="_blank"
     >
-      {{ 'genre.details_button'|trans }}
+      {{ 'genre.tmdb_button'|trans }}
     </a>
 
-    <Popup v-model="isModalVisible" :model-value="isModalVisible" :movie="movie" />
+    <Modal v-if="isModalVisible" @close="isModalVisible = false" :movie="movie" />
   </div>
 </template>
 
 <script>
 import PercentWidget from '../widget/PercentWidget';
-import Popup from './Popup';
+import Modal from './Modal';
 
 export default {
   name: 'MovieCard',
   components: {
     PercentWidget,
-    Popup
+    Modal
   },
   props: {
     movie: {

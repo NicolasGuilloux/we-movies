@@ -15,14 +15,14 @@ final class DiscoverResponse
      *     @Assert\Type(Movie::class)
      * })
      */
-    public array $results;
+    public array $results = [];
 
     #[Assert\NotNull]
-    public int $page;
+    public int $page = 0;
 
     #[Assert\NotNull]
-    public int $total_results;
+    public int $total_results = 0;
 
     #[Assert\NotNull]
-    public int $total_pages;
+    public int $total_pages = 0;
 }

@@ -4,7 +4,7 @@ namespace App\Api\TMDB\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class Movie
+class Movie
 {
     #[Assert\NotNull]
     public int $id;
@@ -20,8 +20,7 @@ final class Movie
     #[Assert\NotNull]
     public bool $adult;
 
-    #[Assert\NotNull]
-    public string $release_date;
+    public ?string $release_date = null;
 
     /**
      * @Assert\All({

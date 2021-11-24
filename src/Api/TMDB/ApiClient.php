@@ -8,6 +8,9 @@ use App\Api\TMDB\Model\DiscoverResponse;
 use App\Api\TMDB\Model\Genre;
 use App\Api\TMDB\Model\GenreResponse;
 use App\Api\TMDB\Model\Movie;
+use App\Api\TMDB\Model\MovieDetails;
+use App\Api\TMDB\Model\Video;
+use App\Api\TMDB\Model\VideosResponse;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,13 +53,62 @@ final class ApiClient
         return $model->genres;
     }
 
-    /** @return Movie[] */
-    public function getMoviesByGenre(Genre $genre): array
+    public function getMoviesByGenre(Genre $genre, ?int $page = null): DiscoverResponse
     {
-        $response = $this->request('/discover/movie', ['with_genres' => $genre->id]);
+        $response = $this->request('/discover/movie', ['with_genres' => $genre->id, 'page' => $page]);
         $content = $response->getContent();
         /** @var DiscoverResponse $model */
         $model = $this->serializer->deserialize($content, DiscoverResponse::class, 'json');
+        $violations = $this->validator->validate($model);
+
+        if ($violations->count() > 0) {
+            throw new ApiBadDataException($response, $violations);
+        }
+
+        return $model;
+    }
+
+    public function getMovie(int $id): ?MovieDetails
+    {
+        $response = $this->request('/movie/' . $id);
+        $content = $response->getContent();
+        /** @var MovieDetails $model */
+        $model = $this->serializer->deserialize($content, MovieDetails::class, 'json');
+        $violations = $this->validator->validate($model);
+
+        if ($violations->count() > 0) {
+            throw new ApiBadDataException($response, $violations);
+        }
+
+        return $model;
+    }
+
+    public function getMovieSearch(string $query): DiscoverResponse
+    {
+        if ($query === '') {
+            return new DiscoverResponse();
+        }
+
+        $response = $this->request('/search/movie', ['query' => $query]);
+        $content = $response->getContent();
+        /** @var DiscoverResponse $model */
+        $model = $this->serializer->deserialize($content, DiscoverResponse::class, 'json');
+        $violations = $this->validator->validate($model);
+
+        if ($violations->count() > 0) {
+            throw new ApiBadDataException($response, $violations);
+        }
+
+        return $model;
+    }
+
+    /** @return Video[] */
+    public function getVideosByMovie(Movie $movie): array
+    {
+        $response = $this->request('/movie/' . $movie->id . '/videos');
+        $content = $response->getContent();
+        /** @var DiscoverResponse $model */
+        $model = $this->serializer->deserialize($content, VideosResponse::class, 'json');
         $violations = $this->validator->validate($model);
 
         if ($violations->count() > 0) {

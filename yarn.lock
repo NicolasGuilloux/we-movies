@@ -6699,6 +6699,18 @@ vue-loader@^15.9.8:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-simple-search-dropdown@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-simple-search-dropdown/-/vue-simple-search-dropdown-1.0.1.tgz#72c6910122d09167d399653b88378e9e81098af0"
+  integrity sha512-r3LuGFB3WqMDRILx+Z/Y2S9UTLqMh3Y0nv1Oly+tt8oEzvg77r0tfYLHVqQlhsmVPy0GmSuxMMbetMkDRLOEqg==
+
+vue-sliding-pagination@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/vue-sliding-pagination/-/vue-sliding-pagination-1.3.2.tgz#39a0df6d07ab706a2129d13edb5c0f1a52b920b0"
+  integrity sha512-0HHSrQFNuJoRHMzYl4Fkj3DAMOLTNZ1gjCQXp6XfD8DepX+SYg/zounrKMB7oBhwI3l8DvxkZW5A/AFC4SSw3g==
+  dependencies:
+    vue "^2.6"
+
 vue-style-loader@^4.1.0:
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.3.tgz#6d55863a51fa757ab24e89d9371465072aa7bc35"
@@ -6725,7 +6737,7 @@ vue-trans@^0.1.1:
   resolved "https://registry.yarnpkg.com/vue-trans/-/vue-trans-0.1.1.tgz#2b44e8c2ee4adf31e98e47118567f33f6427e31a"
   integrity sha512-0YXBB5Fbikdst/aOZGjMP3Vl0kfTDDxiiLH1z7pX/9vF5TEaqoVxf9pcRGK45wtw1xaT1V8wC41i0+rOB5kiAg==
 
-vue@^2.6.14:
+vue@^2.6, vue@^2.6.14:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
