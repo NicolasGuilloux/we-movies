@@ -1,0 +1,21 @@
+{% set translations = [
+    'nav.title',
+    'home.title',
+    'home.welcome',
+    'home.explanations',
+    'genre.title',
+    'genre.details_button',
+    'genre.details.original_language',
+    'genre.details.original_title',
+    'genre.details.release_date',
+    'genre.details.vote_count',
+    'genre.details.vote_average',
+] %}
+
+<script>
+    window.translations = {
+        {% for translation in translations %}
+            '{{ translation }}': "{{ translation|trans|e('js') }}",
+        {% endfor %}
+    };
+</script>

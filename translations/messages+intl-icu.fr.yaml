@@ -13,5 +13,10 @@ home:
 
 genre:
     title: 'Catégorie: {genre_name}'
-    details: 'Code Langage: {original_language}, Titre originel: {original_title}, Date de sortie {release_date}, Nombre de vote : {vote_count}'
     details_button: Lire le détails
+    details:
+        original_language: 'Code Langage :'
+        original_title: 'Titre original :'
+        release_date: 'Date de sortie :'
+        vote_count: 'Nombre de vote :'
+        vote_average: 'Note moyenne :'

@@ -21,7 +21,8 @@ Encore
      * Each entry will result in one JavaScript file (e.g. entrypoint.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/entrypoint.js')
+    .addEntry('style', './assets/sass/app.scss')
+    .addEntry('app', './assets/js/app.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -53,24 +54,10 @@ Encore
         config.corejs = 3;
     })
 
-    // enables Sass/SCSS support
     .enableSassLoader()
-    // enables PostCSS loader
     .enablePostCssLoader()
-
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
-
-    // uncomment if you use React
-    //.enableReactPreset()
-
-    // uncomment to get integrity="..." attributes on your script & link tags
-    // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes(Encore.isProduction())
-
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
-
+    .enableVueLoader()
+    .enableIntegrityHashes(Encore.isProduction())
 ;
 
 module.exports = Encore.getWebpackConfig();

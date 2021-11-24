@@ -1,0 +1,25 @@
+# Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+
+fos_rest:
+    param_fetcher_listener: force
+    allowed_methods_listener: true
+    routing_loader: false
+    view:
+        formats:
+            rss: false
+            json: true
+            xml: false
+    serializer:
+        serialize_null: true
+    body_listener:
+        enabled: true
+    body_converter:
+        enabled: true
+        validate: true
+    service:
+        serializer: 'fos_rest.serializer.symfony'
+    format_listener:
+        rules:
+            - { path: ^/rest, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+            - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json ] }
+            - { path: ^/, prefer_extension: true, fallback_format: html, priorities: [ html, json ] }

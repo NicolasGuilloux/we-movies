@@ -21,11 +21,17 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "axios": "^0.24.0",
         "material-design-icons": "^3.0.1",
+        "moment": "^2.29.1",
         "postcss-loader": "^6.2.0",
         "purgecss-webpack-plugin": "^4.0.3",
         "sass": "^1.43.4",
         "sass-loader": "^12.3.0",
-        "tailwindcss": "^2.2.19"
+        "tailwindcss": "^2.2.19",
+        "vue": "^2.6.14",
+        "vue-loader": "^15.9.8",
+        "vue-template-compiler": "^2.6.14",
+        "vue-trans": "^0.1.1"
     }
 }

@@ -4,12 +4,5 @@
 {% block title %}{{ 'home.title'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="p-8 mt-6 lg:mt-0 leading-normal rounded shadow bg-white">
-        <p>
-            {{ 'home.welcome'|trans|raw }}
-        </p>
-        <p class="mt-4">
-            {{ 'home.explanations'|trans }}
-        </p>
-    </div>
+    {% include 'partials/start_vuejs.html.twig' with {template: '<Home />'} %}
 {% endblock %}

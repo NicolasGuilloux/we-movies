@@ -1,0 +1,14 @@
+{% set randomId = random() %}
+{% set nodeId = "vuejs-#{randomId}" %}
+
+{% if vueAppId is not defined %}
+    {% set vueAppId = "vueApp#{randomId}" %}
+{% endif %}
+
+<div id="{{ nodeId }}"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        window.vueApp['{{ vueAppId }}'] = window.startVueApp('{{ template|raw }}', '{{ nodeId }}');
+    });
+</script>
