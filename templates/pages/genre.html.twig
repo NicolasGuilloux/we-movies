@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}{{ 'genre.title'|trans({'genre_name': currentGenre.name}) }}{% endblock %}
+{% block title %}{{ currentGenre.name }}{% endblock %}
+
+{% block body %}
+    {% for movie in movies %}
+        <div class="p-8 mt-6 w-100 leading-normal rounded shadow bg-white">
+            <div class="flex mb-8 w-100">
+                {% if movie.poster_path is not null %}
+                    <img src="{{ movie.poster_path|tmdbImage }}" alt="movie.name poster" class="h-40 pr-8" />
+                {% endif %}
+
+                <div class="w-100 flex-grow">
+                    <div class="flex justify-between w-100">
+                        <div>
+                            <h2 class="font-sans font-bold break-normal text-gray-700 text-xl">
+                                {{ movie.title }}
+                            </h2>
+                            <h3 class="font-sans font-bold break-normal text-gray-500 pb-2 text-lg">
+                                {{ movie.release_date|date('Y') }}
+                            </h3>
+                        </div>
+
+                        {% include 'partials/percent_widget.html.twig' with {percent: movie.vote_average*10} %}
+                    </div>
+
+                    <p>{{ movie.overview }}</p>
+
+                    <p class="my-4 text-gray-400 text-sm">
+                        {{ 'genre.details'|trans({
+                            original_language: movie.original_language,
+                            original_title: movie.original_title,
+                            release_date: (movie.release_date|date('d/m/Y')),
+                            vote_count: movie.vote_count
+                        }) }}
+                    </p>
+                </div>
+            </div>
+
+            <a class="shadow bg-yellow-700 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+               href="{{ movie|tmdbMovieUrl }}"
+               target="_blank"
+            >
+                {{ 'genre.details_button'|trans }}
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}

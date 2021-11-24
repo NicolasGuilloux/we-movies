@@ -1,0 +1,20 @@
+This repository is another sketch of a movie database meant to showdown some Symfony's skills.
+
+== Installation
+
+1. Make sure the `8888` port is free on your host, and that you have docker obviously.
+2. Then, execute the following commands in order:
+
+    docker-compose up -d
+    docker-compose exec application composer install
+    docker-compose exec application yarn install
+    docker-compose exec application yarn build
+    docker-compose exec application ./bin/console d:d:c
+    docker-compose exec application ./bin/console d:m:m -n
+
+3. Copy the `.env.local.dist` to the same location as `.env.local`
+4. Get an API Key from your https://www.themoviedb.org/settings/api[TMDB account] and and set `TMDB_API_KEY` variable in `.env.local`
+
+== Mentions
+
+- The front template used is from https://www.tailwindtoolbox.com/templates/multi-section-form[Tailwind Toolbox].

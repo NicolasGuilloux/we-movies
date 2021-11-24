@@ -1,0 +1,17 @@
+nav.title: 'Genres'
+
+home:
+    title: Bienvenue
+    welcome: |
+        C'est un site de démonstration pour mobiliser différentes compétences de programmation. Le site utilise
+            <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a> et
+            <a href="https://symfony.com" target="_blank">Symfony</a> ainsi que l'API de
+            <a href="https://www.themoviedb.org/" target="_blank">TMDB</a>.
+    explanations: |
+        Vous pouvez parcourir les catégories situées sur la gauche de l'écran, et butiner sur les différents boutons
+        pour découvrir les différentes fonctionnalités.
+
+genre:
+    title: 'Catégorie: {genre_name}'
+    details: 'Code Langage: {original_language}, Titre originel: {original_title}, Date de sortie {release_date}, Nombre de vote : {vote_count}'
+    details_button: Lire le détails

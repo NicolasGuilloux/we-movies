@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+    application:
+        build: ./config/docker
+        volumes:
+            - .:/app:rw,cached
+        environment:
+            WEB_DOCUMENT_ROOT: /app/public
+            WEB_DOCUMENT_INDEX: index.php
+        ports:
+            - '8888:80'

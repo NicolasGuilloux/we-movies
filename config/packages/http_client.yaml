@@ -1,0 +1,6 @@
+framework:
+    http_client:
+        default_options:
+            headers:
+                'Content-Type': 'application/json'
+                'Accept': 'application/json'
