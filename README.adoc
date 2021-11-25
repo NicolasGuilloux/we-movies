@@ -20,7 +20,7 @@ This repository is another sketch of a movie database meant to showdown some Sym
 - Find at least one movie that has videos attached to it
 - Remove useless dependencies such as Doctrine, Mailer, etc.
 - Find a better library to handle routing and translation with VueJS
-- Add test, testing is life. With more time, I would have focus on the TDD.
+- Add a CI
 
 == Mentions
 
